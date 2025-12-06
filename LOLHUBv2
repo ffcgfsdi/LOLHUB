@@ -475,10 +475,161 @@ Tabs.ToggleTab:Toggle({
     Callback = function(state) print("Mode activated: " .. tostring(state)) end
 })
 Tabs.ToggleTab:Toggle({
-    Title = "Toggle with icon",
-    Icon = "check",
-    Value = false,
-    Callback = function(state) print("Toggle with icon activated: " .. tostring(state)) end
+    Title = "美化皮肤 icon",
+MainTab = MainSection:Tab({ Title = "人物美化", Icon = "Sword" })
+ 
+ 
+MainTab:Toggle({
+    Title = "美化无头",
+    Default = false,
+    Callback = function(Value)
+        if Value then
+           
+            local char = Players.LocalPlayer.Character
+            if char then
+                local head = char:FindFirstChild("Head")
+                if head then
+                    head.Transparency = 1
+                    local decal = head:FindFirstChildOfClass("Decal")
+                    if decal then
+                        decal:Destroy()
+                    end
+                end
+            end
+        else
+           
+            local char = Players.LocalPlayer.Character
+            if char then
+                local head = char:FindFirstChild("Head")
+                if head then
+                    head.Transparency = 0
+                end
+            end
+        end
+    end
+})
+
+MainTab:Toggle({
+    Title = "美化断腿",
+    Default = false,
+    Callback = function(Value)
+        if Value then
+          
+            local char = Players.LocalPlayer.Character
+            if char then
+                local rightLeg = char:FindFirstChild("RightLeg") or char:FindFirstChild("Right Leg")
+                if rightLeg then
+                   
+                    for _, child in pairs(rightLeg:GetChildren()) do
+                        if child:IsA("SpecialMesh") then
+                            child:Destroy()
+                        end
+                    end
+                    
+           
+                    local specialMesh = Instance.new("SpecialMesh")
+                    specialMesh.MeshId = "rbxassetid://101851696"
+                    specialMesh.TextureId = "rbxassetid://115727863"
+                    specialMesh.Scale = Vector3.new(1, 1, 1)
+                    specialMesh.Parent = rightLeg
+                end
+            end
+        else
+    
+            local char = Players.LocalPlayer.Character
+            if char then
+                local rightLeg = char:FindFirstChild("RightLeg") or char:FindFirstChild("Right Leg")
+                if rightLeg then
+                    for _, child in pairs(rightLeg:GetChildren()) do
+                        if child:IsA("SpecialMesh") then
+                            child:Destroy()
+                        end
+                    end
+                end
+            end
+        end
+    end
+})
+
+MainTab:Toggle({
+    Title = "删除帽子",
+    Default = false,
+    Callback = function(Value)
+        if Value then
+           
+            local char = Players.LocalPlayer.Character
+            if char then
+                for _, accessory in pairs(char:GetChildren()) do
+                    if accessory:IsA("Accessory") then
+                        accessory:Destroy()
+                    end
+                end
+            end
+        else
+            
+     
+        end
+    end
+})
+local rainbowCharacterEnabled = false
+local rainbowCharacterConnection = nil
+
+MainTab:Toggle({
+    Title = "删除全部衣服",
+    Default = false,
+    Callback = function(Value)
+        rainbowCharacterEnabled = Value
+        
+        if Value then
+           
+            if rainbowCharacterConnection then
+                rainbowCharacterConnection:Disconnect()
+            end
+            
+            rainbowCharacterConnection = RunService.RenderStepped:Connect(function()
+                local char = Players.LocalPlayer.Character
+                if not char then return end
+                
+                local hue = (tick() % 5) / 5
+                local rainbowColor = Color3.fromHSV(hue, 1, 1)
+                
+
+                for _, part in pairs(char:GetChildren()) do
+                    if part:IsA("BasePart") and part.Name ~= "HumanoidRootPart" then
+                        part.Color = rainbowColor
+                        
+                     
+                        local glow = part:FindFirstChild("RainbowGlow") or Instance.new("SurfaceAppearance")
+                        glow.Name = "RainbowGlow"
+                        glow.ColorMap = "rbxassetid://9018903989" 
+                        glow.Parent = part
+                    end
+                end
+            end)
+        else
+         
+            if rainbowCharacterConnection then
+                rainbowCharacterConnection:Disconnect()
+                rainbowCharacterConnection = nil
+            end
+            
+          
+            local char = Players.LocalPlayer.Character
+            if char then
+                for _, part in pairs(char:GetChildren()) do
+                    if part:IsA("BasePart") then
+                        part.Color = Color3.fromRGB(163, 162, 165) 
+                        
+                    
+                        local glow = part:FindFirstChild("RainbowGlow")
+                        if glow then
+                            glow:Destroy()
+                        end
+                    end
+                end
+            end
+        end
+    end
 })
 
 Tabs.ToggleTab:Toggle({
