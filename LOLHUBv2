@@ -1,11 +1,11 @@
-local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))()
+local LOL HUB = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))()
 
 -- Test
 
 
 
 -- Set theme:
---WindUI:SetTheme("Light")
+--LOL HUB:SetTheme("Light")
 
 --- EXAMPLE !!!
 
@@ -32,7 +32,7 @@ WindUI:Popup({
     Title = "Welcome! Popup Example",
     Icon = "rbxassetid://129260712070622",
     IconThemed = true,
-    Content = "This is an Example UI for the " .. gradient("WindUI", Color3.fromHex("#00FF87"), Color3.fromHex("#60EFFF")) .. " Lib",
+    Content = "This is an Example UI for the " .. gradient("LOL HUB", Color3.fromHex("#00FF87"), Color3.fromHex("#60EFFF")) .. " Lib",
     Buttons = {
         {
             Title = "Cancel",
@@ -54,8 +54,8 @@ repeat wait() until Confirmed
 
 --
 
-local Window = WindUI:CreateWindow({
-    Title = "WindUI Library",
+local Window = LOL HUB:CreateWindow({
+    Title = "LOL HUB Library",
     Icon = "rbxassetid://129260712070622",
     IconThemed = true,
     Author = "Example UI",
@@ -327,7 +327,7 @@ end]],
 })
 
 Tabs.CodeTab:Code({
-    Code = [[print("WindUI on top!")]],
+    Code = [[print("LOL HUB on top!")]],
 })
 
 
@@ -415,7 +415,7 @@ Tabs.DialogTab:Button({
 Tabs.NotificationTab:Button({
     Title = "Click to get Notified",
     Callback = function() 
-        WindUI:Notify({
+        LOL HUB:Notify({
             Title = "Notification Example 1",
             Content = "Content",
             Duration = 5,
@@ -426,7 +426,7 @@ Tabs.NotificationTab:Button({
 Tabs.NotificationTab:Button({
     Title = "Notification with icon",
     Callback = function() 
-        WindUI:Notify({
+        LOL HUB:Notify({
             Title = "Notification Example 2",
             Content = "Content",
             Icon = "droplet-off",
@@ -438,7 +438,7 @@ Tabs.NotificationTab:Button({
 Tabs.NotificationTab:Button({
     Title = "Notification with custom icon",
     Callback = function() 
-        WindUI:Notify({
+        LOL HUB:Notify({
             Title = "Notification Example 2",
             Content = "Content",
             Icon = "rbxassetid://129260712070622",
@@ -451,7 +451,7 @@ Tabs.NotificationTab:Button({
 Tabs.NotificationTab:Button({
     Title = "Notification with BackgroundImage",
     Callback = function() 
-        WindUI:Notify({
+        LOL HUB:Notify({
             Title = "Notification Example 3",
             Content = "with BackgroundImage",
             Icon = "image",
@@ -631,7 +631,7 @@ Tabs.DropdownTab:Dropdown({
 
 local HttpService = game:GetService("HttpService")
 
-local folderPath = "WindUI"
+local folderPath = "LOL HUB"
 makefolder(folderPath)
 
 local function SaveFile(fileName, data)
@@ -662,7 +662,7 @@ end
 Tabs.WindowTab:Section({ Title = "Window", Icon = "app-window-mac" })
 
 local themeValues = {}
-for name, _ in pairs(WindUI:GetThemes()) do
+for name, _ in pairs(LOL HUB:GetThemes()) do
     table.insert(themeValues, name)
 end
 
@@ -673,17 +673,17 @@ local themeDropdown = Tabs.WindowTab:Dropdown({
     Value = nil,
     Values = themeValues,
     Callback = function(theme)
-        WindUI:SetTheme(theme)
+        LOL HUB:SetTheme(theme)
     end
 })
-themeDropdown:Select(WindUI:GetCurrentTheme())
+themeDropdown:Select(LOL HUB:GetCurrentTheme())
 
 local ToggleTransparency = Tabs.WindowTab:Toggle({
     Title = "Toggle Window Transparency",
     Callback = function(e)
         Window:ToggleTransparency(e)
     end,
-    Value = WindUI:GetTransparency()
+    Value = LOL HUB:GetTransparency()
 })
 
 Tabs.WindowTab:Section({ Title = "Save" })
@@ -701,7 +701,7 @@ Tabs.WindowTab:Button({
     Title = "Save File",
     Callback = function()
         if fileNameInput ~= "" then
-            SaveFile(fileNameInput, { Transparent = WindUI:GetTransparency(), Theme = WindUI:GetCurrentTheme() })
+            SaveFile(fileNameInput, { Transparent = LOLHUB:GetTransparency(), Theme = LOLHUB:GetCurrentTheme() })
         end
     end
 })
@@ -727,7 +727,7 @@ Tabs.WindowTab:Button({
         if fileNameInput ~= "" then
             local data = LoadFile(fileNameInput)
             if data then
-                WindUI:Notify({
+                LOLHUB:Notify({
                     Title = "File Loaded",
                     Content = "Loaded data: " .. HttpService:JSONEncode(data),
                     Duration = 5,
@@ -736,7 +736,7 @@ Tabs.WindowTab:Button({
                     Window:ToggleTransparency(data.Transparent)
                     ToggleTransparency:SetValue(data.Transparent)
                 end
-                if data.Theme then WindUI:SetTheme(data.Theme) end
+                if data.Theme then LOLHUB:SetTheme(data.Theme) end
             end
         end
     end
@@ -746,7 +746,7 @@ Tabs.WindowTab:Button({
     Title = "Overwrite File",
     Callback = function()
         if fileNameInput ~= "" then
-            SaveFile(fileNameInput, { Transparent = WindUI:GetTransparency(), Theme = WindUI:GetCurrentTheme() })
+            SaveFile(fileNameInput, { Transparent =  LOLHUB:GetTransparency(), Theme = LOLHUB:GetCurrentTheme() })
         end
     end
 })
@@ -758,8 +758,8 @@ Tabs.WindowTab:Button({
     end
 })
 
-local currentThemeName = WindUI:GetCurrentTheme()
-local themes = WindUI:GetThemes()
+local currentThemeName = LOLHUB:GetCurrentTheme()
+local themes = LOLHUB:GetThemes()
 
 local ThemeAccent = themes[currentThemeName].Accent
 local ThemeOutline = themes[currentThemeName].Outline
@@ -767,14 +767,14 @@ local ThemeText = themes[currentThemeName].Text
 local ThemePlaceholderText = themes[currentThemeName].Placeholder
 
 function updateTheme()
-    WindUI:AddTheme({
+    LOLHUB:AddTheme({
         Name = currentThemeName,
         Accent = ThemeAccent,
         Outline = ThemeOutline,
         Text = ThemeText,
         Placeholder = ThemePlaceholderText
     })
-    WindUI:SetTheme(currentThemeName)
+    LOLHUB:SetTheme(currentThemeName)
 end
 
 local CreateInput = Tabs.CreateThemeTab:Input({
@@ -827,7 +827,7 @@ Tabs.CreateThemeTab:Button({
 local InviteCode = "ApbHXtAwU2"
 local DiscordAPI = "https://discord.com/api/v10/invites/" .. InviteCode .. "?with_counts=true&with_expiration=true"
 
-local Response = game:GetService("HttpService"):JSONDecode(WindUI.Creator.Request({
+local Response = game:GetService("HttpService"):JSONDecode(LOLHUB.Creator.Request({
     Url = DiscordAPI,
     Method = "GET",
     Headers = {
@@ -851,7 +851,7 @@ if Response and Response.guild then
         Title = "Update Info",
         --Image = "refresh-ccw",
         Callback = function()
-            local UpdatedResponse = game:GetService("HttpService"):JSONDecode(WindUI.Creator.Request({
+            local UpdatedResponse = game:GetService("HttpService"):JSONDecode(LOLHUB.Creator.Request({
                 Url = DiscordAPI,
                 Method = "GET",
             }).Body)
@@ -1002,13 +1002,13 @@ local function tableToClipboard(luau_table, indent)
 end
 
 Tabs.Tests:Section({
-    Title = "Get WindUI JSON"
+    Title = "Get LOLHUB JSON"
 })
 
 Tabs.Tests:Button({
-    Title = "Get WindUI JSON",
+    Title = "Get LOLHUB JSON",
     Callback = function()
-        tableToClipboard(WindUI)
+        tableToClipboard(LOLHUB)
     end
 })
 
@@ -1093,7 +1093,7 @@ myConfig:Register( "ColorpickerNameExample",     ColorpickerElement )
 --[[ Saving at 
     {yourExecutor}
         /Workspace
-            /WindUI
+            /LOLHUB
                 /{Window.Folder}
                     /config
                         /myConfig.json
