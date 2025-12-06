@@ -32,7 +32,7 @@ WindUI:Popup({
     Title = "Welcome! Popup Example",
     Icon = "rbxassetid://129260712070622",
     IconThemed = true,
-    Content = "This is an LOL HUB UI for the " .. gradient("LOLHUB", Color3.fromHex("#00FF87"), Color3.fromHex("#60EFFF")) .. " Lib",
+    Content = "This is an Example UI for the " .. gradient("LOL HUB", Color3.fromHex("#00FF87"), Color3.fromHex("#60EFFF")) .. " Lib",
     Buttons = {
         {
             Title = "Cancel",
@@ -58,7 +58,7 @@ local Window = WindUI:CreateWindow({
     Title = "WindUI Library",
     Icon = "rbxassetid://129260712070622",
     IconThemed = true,
-    Author = "Example UI",
+    Author = "LOL HUB",
     Folder = "CloudHub",
     Size = UDim2.fromOffset(580, 460),
     Transparent = true,
@@ -108,7 +108,7 @@ Window:CreateTopbarButton("MyCustomButton3", "battery-plus", function() Window:T
 
 
 Window:EditOpenButton({
-    Title = "LOL HUB UI",
+    Title = "LOL HUB",
     Icon = "monitor",
     CornerRadius = UDim.new(0,16),
     StrokeThickness = 2,
