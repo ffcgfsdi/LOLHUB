@@ -1,37 +1,37 @@
-本地OrionLib=loadstring(游戏：HttpGet('https://pastebin.com/raw/xLRUSiKx'))()
-本地窗口=OrionLib:MakeWindow({Name="LOL HUB V3"，HidePremium=false，saveconfig=true，introtext="lost"，ConfigFolder="0"})
-本地选项卡=窗口：MakeTab({
-name="0"，
-icon="rbxassetid://4483345998"，
-PremiumOnly=false
+local OrionLib = loadstring(game:HttpGet('https://pastebin.com/raw/xLRUSiKx'))()
+local Window = OrionLib:MakeWindow({Name = "LOL HUB V3", HidePremium = false, SaveConfig = true,IntroText = "lost", ConfigFolder = "0"})
+local Tab = Window:MakeTab({
+    Name = "0",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
 })
 
-选项卡：addButton({
-name="0"，
-回调=函数()
+Tab:AddButton({
+	Name = "0",
+	Callback = function()
 脚本
-结束
+end
 })    
-选项卡：addButton({
-name="0"，
-回调=函数()
+Tab:AddButton({
+	Name = "0",
+	Callback = function()
 脚本
-结束
+end
 })......
-本地选项卡=窗口：MakeTab({
-name="0"，
-icon="rbxassetid://4483345998"，
-PremiumOnly=false
+local Tab = Window:MakeTab({
+    Name = "0",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
 })
-选项卡：addButton({
-name="LOLHUB"，
-回调=函数()
+Tab:AddButton({
+	Name = "LOLHUB",
+	Callback = function()
 脚本
-结束
+end
 })    
-选项卡：addButton({
-name="LOL HUB"，
-回调=函数()
+Tab:AddButton({
+	Name = "LOL HUB",
+	Callback = function()
 脚本
-结束
+end
 })
